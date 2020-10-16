@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
-    <h:head>
-        <title>PrimeFaces Test</title>
-        <h:outputScript name="test.js" />
-    </h:head>
-    <h:body>
+<f:metadata>
+	<f:viewParam id="id" name="id" value="#{testView.testClass.id}" />
+</f:metadata>
 
-        <h1>#{testView.testString}</h1>
-        <h:form id="frmTest">
-            
-        </h:form>
+<h:form>
 
-    </h:body>
+	<p:commandButton update="@this" process="@this" />
+
+	<h:selectOneMenu value="#{testView.testClass}">
+		<f:selectItem itemValue="null" itemLabel="Sel. classe" />
+		<f:selectItems value="#{testView.testClasses}" var="cl"
+			itemValue="#{cl}" itemLabel="#{cl.id}" />
+	</h:selectOneMenu>
+
+</h:form>
+
 </html>
