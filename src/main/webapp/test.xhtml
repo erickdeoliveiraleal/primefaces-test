@@ -3,7 +3,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
 <f:metadata>
@@ -12,7 +11,9 @@
 
 <h:form>
 
-	<p:commandButton update="@this" process="@this" />
+	<h:commandButton>
+		<f:ajax execute="@form"  />
+	</h:commandButton>
 
 	<h:selectOneMenu value="#{testView.testClass}">
 		<f:selectItem itemValue="null" itemLabel="Sel. classe" />
